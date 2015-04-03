@@ -1,0 +1,23 @@
+<dashboard script="autodiscover.js">
+  <label>HelloWorld SimpleXML + JS</label>
+  <row>
+    <panel>
+      <html>
+            <h2>HelloWorld</h2>
+
+            <div id="custom_search" class="splunk-manager" data-require="splunkjs/mvc/searchmanager" data-options='{
+                 "search": "| metadata type=sourcetypes",
+                 "earliest_time": "-1h"
+            }'>
+            </div>
+
+            <div id="custom" class="splunk-view" data-require="app/simple_xml_examples/components/helloworld/helloworld" data-options='{
+                 "managerid": "custom_search",
+                 "height": 400
+            }'>
+            </div>
+
+        </html>
+    </panel>
+  </row>
+</dashboard>

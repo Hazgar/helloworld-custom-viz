@@ -1,0 +1,37 @@
+{% extends "splunkdj:base_with_app_bar.html" %}
+
+{% load splunkmvc %}
+{% load helloworld %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}splunkjs/css/dashboard.css" />
+{% endblock css %}
+
+{% block content %}
+<div class="dashboard-body container-fluid main-section-body splunk-view view-mode" data-role="main">
+    <div class="dashboard-header clearfix">
+        <h2>HelloWorld Django + JS</h2>
+    </div>
+    <div class="dashboard-row">
+        <div class="dashboard-cell" style="width: 100%;">
+            <div style="min-height: 0px;" class="dashboard-panel clearfix">
+                <div class="panel-element-row">
+                    <div id="element1" class="dashboard-element html splunk-view" style="width: 100%;">
+                        <div class="panel-body html">
+                            <h2>HelloWorld</h2>
+                            {% helloworld id="test" managerid="search1" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block managers %}
+    {% searchmanager id="search1"
+        search='| metadata type=sourcetypes'
+        cache=True
+    %}
+{% endblock managers %}

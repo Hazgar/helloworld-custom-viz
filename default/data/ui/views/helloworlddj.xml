@@ -1,0 +1,1 @@
+<view template="helloworld:/templates/redirect.tmpl" isVisible="true"><label>HelloWorld Django + JS</label></view>
